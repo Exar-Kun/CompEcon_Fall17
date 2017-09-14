@@ -22,6 +22,13 @@ This module of the course introduces you to the basics of programming in Python,
 * [Python Basics](https://github.com/jdebacker/CompEcon_Fall17/blob/master/Python/PythonBasics.ipynb)
 * [Read and Writing Data, Writing Functions](https://github.com/jdebacker/CompEcon_Fall17/blob/master/Python/DataFunctions.ipynb)
 
+<<<<<<< HEAD
+=======
+## 2. Notebooks we worked through in class
+* [Python Basics](https://github.com/jdebacker/CompEcon_Fall17/blob/master/Python/PythonBasics.ipynb)
+* [Read and Writing Data, Writing Functions](https://github.com/jdebacker/CompEcon_Fall17/blob/master/Python/DataFunctions.ipynb)
+
+>>>>>>> upstream/master
 ## 3. Useful Links
 
 * [Pandas Techniques](https://medium.com/@sean.turner026/week-2-and-useful-pandas-techniques-2f5dd78a5a59)

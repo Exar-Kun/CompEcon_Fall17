@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct  5 08:48:51 2017
+
+@author: Alexandria
+"""
+
+#Boulevard of broken dreams PS4
+
+#This code neither works nor is a good idea, nevertheless, it is useful to 
+#keep such as a record of past failed ideologies...
+for i in range(len(data2007)):
+    cfi = data2007[(data['buyer_id']!= i)]
+    cfi.drop('buyer_id', axis=1)
+    cfi['buyer_id'] = i

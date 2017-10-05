@@ -42,6 +42,12 @@ data2007 = data[(data['year']==2007)]
 
 data2008 = data[(data['year']==2008)]
 
+
+data2007b = data2007[['buyer_id','num_stations_buyer', 'corp_owner_buyer', 'buyer_coordinates']]
+data2007t = data2007[['target_id','hhi_target', 'price', 'population_target', 'target_coordinates']]
+
+data2008b = data2008[['buyer_id','num_stations_buyer', 'corp_owner_buyer', 'buyer_coordinates']]
+data2008t = data2008[['target_id','hhi_target', 'price', 'population_target', 'target_coordinates']]
 #Upon the generation of the counterfactuals we will use this to create
 #distance data
 
@@ -51,11 +57,16 @@ data2008 = data[(data['year']==2008)]
 
 #We begin by finding all the values for the buyers 
 
-for i in range(1, 45):
-    cfi = data2007[(data['buyer_id']!= i)]
-    cfi.drop('buyer_id', axis=1)
-    cfi['buyer_id'] = i
+counter = pd.DataFrame()
 
+for i in range(len(data2007b)):
+    for j in range(len(data2007t)):
+        if i != j:
+            counter = counter.append(pd.concat(
+                    [data2007b.iloc[[i]].reset_index(drop=True), 
+                    data2007t.iloc[[j]].reset_index(drop=True)], axis=1))
+
+#Having now created the data we seek, we combine it into 
 
 
     

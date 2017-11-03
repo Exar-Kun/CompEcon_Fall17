@@ -95,6 +95,8 @@ Full["rural"] = Full["urban_3"]
 
 ##The logit model for fair treatment of blacks is below
 
+y = Full["Unfair_2_Blacks"]
+
 model = sm.Logit(y, Full[["Death", "age", "black", "white"]])
 
 result = model.fit()
@@ -104,9 +106,9 @@ result.summary()
 #We now perform another specification with the fairness of the police as the
 #explanatory varibale and city level controls
 
-model1 = sm.Logit(y, Full[["Death", "age", "black", "white", "city", "suburbia", "rural"]])
+model1 = sm.Logit(y, Full[["Death", "age", "black", "rural", "city", "suburbia"]])
 
-result1 = model.fit()
+result1 = model1.fit()
 
 result1.summary()
     

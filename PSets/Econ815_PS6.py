@@ -55,7 +55,7 @@ min_repot['other'] = min_repot['raceban2_7.0']
 #determine whether or not there was a police induced fatality near said person
 #which might affect their responses#
 
-Full = Fatal.merge(min_repot, on=('zipcode', "yr"), how='left')
+Full = Fatal.merge(min_repot, on=('zipcode', "yr"), how='outer')
 
 #We now generate a death variable equal to 1 if there was a police related
 #death in the same zipcode. 
@@ -88,7 +88,7 @@ Full = pd.get_dummies(Full, columns=["urban"])
 Full["city"] = Full["urban_1"]
 Full["suburbia"] = Full["urban_2"]
 Full["rural"] = Full["urban_3"]
-
+Full["black_Death"] = Full["Death"] * Full["black"]
 
 #Having created this variable, we now use it as the difference variable, to 
 #run our difference in difference analysis.
@@ -97,7 +97,7 @@ Full["rural"] = Full["urban_3"]
 
 y = Full["Unfair_2_Blacks"]
 
-model = sm.Logit(y, Full[["Death", "age", "black", "white"]])
+model = sm.Logit(y, Full[["Death", "age", "white", "DinD"]])
 
 result = model.fit()
 
@@ -106,7 +106,8 @@ result.summary()
 #We now perform another specification with the fairness of the police as the
 #explanatory varibale and city level controls
 
-model1 = sm.Logit(y, Full[["Death", "age", "black", "rural", "city", "suburbia"]])
+
+model1 = sm.Logit(y, Full[["Death", "age", "rural", "city", "suburbia", "black_Death"]])
 
 result1 = model1.fit()
 

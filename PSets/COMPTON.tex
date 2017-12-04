@@ -1,0 +1,23 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+            &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{Logit}&\multicolumn{1}{c}{Probit}\\
+\hline
+main        &                     &                     &                     \\
+Police\_Death&      -0.124\sym{***}&      -14.67\sym{***}&      -3.905\sym{***}\\
+            &     (-5.89)         &    (-35.04)         &    (-44.89)         \\
+[1em]
+black\_Death &       0.304\sym{***}&       15.83\sym{***}&       4.563\sym{***}\\
+            &      (8.98)         &     (32.32)         &     (39.62)         \\
+[1em]
+hisp\_Death  &      0.0166         &       12.47\sym{***}&       2.903\sym{***}\\
+            &      (1.29)         &     (17.55)         &     (11.64)         \\
+\hline
+\(N\)       &        9683         &        9408         &        9408         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}
